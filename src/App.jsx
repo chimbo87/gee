@@ -8,9 +8,12 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import About from "./pages/about/About";
-import Services from "./pages/service/Services";
+
+
 import Contact from "./pages/contacts/Contact";
+import ImportExportServices from "./pages/service/ImportExportServices";
+import CrossBorderPermits from "./pages/service/CrossBorderPermits";
+import VehicleRegistration from "./pages/service/VehicleRegistration";
 ;
 
 function App() {
@@ -18,8 +21,10 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<RootLayOut />}>
         <Route index element={<Home />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/services" element={<Services />}></Route>
+  
+        <Route path="/import-export-services" element={<ImportExportServices/>}></Route>
+        <Route path="/cross-border-permits" element={<CrossBorderPermits/>}></Route>
+        <Route path="/vehicle-registrations" element={<VehicleRegistration/>}></Route>
         <Route path="/contact" element={<Contact />}></Route>
       </Route>
     )

@@ -5,9 +5,9 @@ import "swiper/css";
 import { useNavigate } from "react-router-dom";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import banner01 from "../../assets/med18.jpeg";
-import banner02 from "../../assets/med16.jpeg";
-import banner03 from "../../assets/med15.jpeg";
+import banner01 from "../../assets/images/hero01.jpeg";
+import banner02 from "../../assets/images/hero02.jpeg";
+import banner03 from "../../assets/images/hero03.jpeg";
 import "./Hero.css";
 
 function Hero() {
@@ -15,21 +15,23 @@ function Hero() {
   const slides = [
     {
       id: 1,
-      title: "A Healthier Tomorrow Starts Here",
+      title: "Import & Export Licences",
       description:
-      "We provide high-quality medical services tailored to your needs. Your well-being is our mission—schedule a visit now",
+        "Streamline your international trade with our expert licensing services. Fast, compliant, and hassle-free solutions for all your import/export needs.",
       image: banner02,
     },
     {
       id: 2,
-      title: "Expert Care Close to Home",
-      description:  "From routine check-ups to specialized treatments, our dedicated team is here to support your health journey with compassion and expertise",
+      title: "Cross-Border Permits",
+      description:
+        "Seamless cross-border operations guaranteed. We handle all permit applications so your goods move freely across African borders without delays",
       image: banner01,
     },
     {
       id: 3,
-      title: "Comprehensive Care for Every Patient",
-      description:  "We provide high-quality medical services tailored to your needs. Your well-being is our mission—schedule a visit now",
+      title: "Vehicle Registration & Plates",
+      description:
+        "One-stop solution for all vehicle documentation. From registration to number plates – we make road compliance quick and effortless.",
       image: banner03,
     },
   ];
@@ -51,16 +53,19 @@ function Hero() {
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
-      
               }}
             >
               <div id="hero-box-container">
                 <div id="hero-banner">
                   <h1>{slide.title}</h1>
                   <p>{slide.description}</p>
-                  <button   onClick={() => {
-                  navigate("/contact");
-                }}>Schedule an appointment</button>
+                  <button
+                    onClick={() => {
+                      navigate("/contact");
+                    }}
+                  >
+                    Schedule an appointment
+                  </button>
                 </div>
               </div>
             </div>

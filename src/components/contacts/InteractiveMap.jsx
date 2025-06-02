@@ -8,9 +8,9 @@ const InteractiveMap = () => {
       <h2>Find Us</h2>
       <div className="map-content">
         <div className="map-wrapper">
-         
+        
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d243081.43784661609!2d31.024704!3d-17.8317207!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931beff980a8e59%3A0x651100b6b1b57de7!2sLobengula!5e0!3m2!1sen!2sza!4v1746019251365!5m2!1sen!2sza"
+            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d114610.23755044036!2d28.08918690433702!3d-26.145562296401078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s3%20linkfied%20road!5e0!3m2!1sen!2sza!4v1748871577584!5m2!1sen!2sza"
             width="100%"
             height="450"
             style={{ border: 0 }}
@@ -25,21 +25,16 @@ const InteractiveMap = () => {
             <MapPin className="map-icon" />
             <div>
               <h3>Our Location</h3>
-              <p>1741 Lobengula Street</p>
-              <p>Ruwa</p>
-           
+              <p>123 Test Street</p>
+              <p>Test</p>
             </div>
           </div>
           <div className="map-directions">
             <h3>Getting Here</h3>
             <ul>
-              <li>
-                From Harare CBD follow Mutare Road to Ruwa
-              </li>
-              <li>Public Transit: Routes Mutare Road</li>
-              <li>
-                Parking: Free parking available in the Complex
-              </li>
+              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+              <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
             </ul>
           </div>
         </div>

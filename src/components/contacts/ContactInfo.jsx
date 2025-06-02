@@ -11,8 +11,8 @@ const ContactInfo = () => {
           <Phone className="contact-icon" />
           <div>
             <h3>Phone</h3>
-            <p>Main Line:  +263 77 484 3841</p>
-            <p>Appointment:  +263 6523 22251</p>
+            <p>Main Line:  +2700 000 0000</p>
+            <p>Appointment: +2700 000 0000</p>
           </div>
         </div>
         
@@ -20,9 +20,9 @@ const ContactInfo = () => {
           <Mail className="contact-icon" />
           <div>
             <h3>Email</h3>
-            <p><b>General Inquiries</b>: info@mitralclinic.org</p>
-            <p><b>Appointments</b>: smaforo@mitralclinic.org</p>
-            <p><b>Bookings</b>: booking@mitralclinic.org</p>
+            <p><b>General Inquiries</b>:  nnqueueingservices.co.za</p>
+            <p><b>Appointments</b>:  nnqueueingservices.co.za</p>
+            <p><b>Bookings</b>:  nnqueueingservices.co.za</p>
           </div>
         </div>
         

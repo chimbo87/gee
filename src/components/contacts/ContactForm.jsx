@@ -76,7 +76,7 @@ const ContactForm = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="+263"
+              placeholder="+27"
             />
           </div>
           
@@ -92,9 +92,9 @@ const ContactForm = () => {
               <option value="">Please select</option>
               <option value="General Inquiry">General Inquiry</option>
               <option value="Appointment Information">Appointment Information</option>
-              <option value="Insurance Question">Insurance Question</option>
-              <option value="Billing Question">Billing Question</option>
-              <option value="Medical Records">Medical Records</option>
+              <option value="Insurance Question">Imports & Export</option>
+              <option value="Billing Question">Vehicle Registration</option>
+              <option value="Medical Records">Cross Border Permits</option>
               <option value="Other">Other</option>
             </select>
           </div>

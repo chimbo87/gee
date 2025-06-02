@@ -2,24 +2,42 @@ import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { MdEmail } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import { IoLocation } from "react-icons/io5";
+import { IoLocation, IoChevronDown } from "react-icons/io5";
 import { FaSquarePhone } from "react-icons/fa6";
-import logo from "../../assets/images/mitralog.png";
-import { Link, useLocation } from "react-router-dom"; // Added useLocation hook
+import { Link, useLocation } from "react-router-dom";
+import { Dropdown, Menu } from "antd";
 
 function Navbar() {
   const navigate = useNavigate();
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [animatedLinks, setAnimatedLinks] = useState(false);
-  const location = useLocation(); // Get current location
+  const location = useLocation();
 
   const navigationItems = [
-    { path: "/", name: "home" },
-    { path: "/services", name: "services" },
-    { path: "/about", name: "about" },
-
-    { path: "/contact", name: "contact" },
+    { path: "/", name: "Home" },
+    { path: "/contact", name: "Contact" },
   ];
+
+  // Services dropdown menu items
+  const servicesMenu = (
+    <Menu>
+      <Menu.Item key="1">
+        <Link to="/import-export-services" onClick={() => setIsMenuActive(false)}>
+          Imports and Exports
+        </Link>
+      </Menu.Item>
+      <Menu.Item key="2">
+        <Link to="/vehicle-registrations" onClick={() => setIsMenuActive(false)}>
+         Vehicle Registration & Plates
+        </Link>
+      </Menu.Item>
+      <Menu.Item key="3">
+        <Link to="/cross-border-permits" onClick={() => setIsMenuActive(false)}>
+         Cross Border Permits
+        </Link>
+      </Menu.Item>
+    </Menu>
+  );
 
   const toggleMenu = () => {
     setIsMenuActive(!isMenuActive);
@@ -32,71 +50,121 @@ function Navbar() {
     }
   }, [isMenuActive]);
 
+  const isServicesActive = location.pathname.startsWith('/services');
+
   return (
     <div id="navigation-bar">
       <div id="nav-top">
         <div id="nav-top-card">
           <small>
-            <MdEmail /> info@mitralclinic.org
+            <MdEmail /> nnqueueingservices.co.za
           </small>
         </div>
-        <div id="nav-top-card">
+        <div className="nav-top-cardlocation">
           <small id="top-nav-add">
             <IoLocation />
-            1741 Lobengula Street, Ruwa
+            123 Test Road Street, Mars
           </small>
         </div>
         <div id="nav-top-card">
           <small id="top-nav-addt">
-            <FaSquarePhone /> +26377 484 3841
+            <FaSquarePhone /> +2700 000 000
           </small>
         </div>
-    
       </div>
+      
       <nav className="navbar">
-        <div
-          className="mitral-logo"
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          <img src={logo} alt="logo" />
-          <small>MITRAL <span>CLINIC</span></small>
+        <div className="mitral-logo" onClick={() => navigate("/")}>
+          <small>LOGO</small>
         </div>
 
         <ul className={`nav-links ${isMenuActive ? "active" : ""}`}>
-          {navigationItems.map((item, index) => (
-            <li
-              key={item.name}
+          <li
+            style={
+              animatedLinks
+                ? {
+                    animation: `navLinkFade 0.5s ease forwards ${0 / 7 + 0.3}s`,
+                  }
+                : {}
+            }
+          >
+            <Link
+              to="/"
+              className={location.pathname === "/" ? "active" : ""}
+              onClick={() => {
+                setIsMenuActive(false);
+                setAnimatedLinks(false);
+              }}
+            >
+              Home
+            </Link>
+          </li>
+          
+          {/* Services dropdown - Desktop */}
+          <li className="services-dropdown desktop-only"
               style={
                 animatedLinks
                   ? {
-                      animation: `navLinkFade 0.5s ease forwards ${
-                        index / 7 + 0.3
-                      }s`,
+                      animation: `navLinkFade 0.5s ease forwards ${1 / 7 + 0.3}s`,
                     }
                   : {}
-              }
+              }>
+            <Dropdown 
+              overlay={servicesMenu} 
+              trigger={['hover', 'click']}
+              placement="bottomLeft"
             >
-              <Link
-                to={item.path}
-                className={location.pathname === item.path ? "active" : ""}
-                onClick={() => {
-                  setIsMenuActive(false);
-                  setAnimatedLinks(false);
-                }}
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
+              <span className={`dropdown-trigger ${isServicesActive ? "active" : ""}`}>
+                Services <IoChevronDown />
+              </span>
+            </Dropdown>
+          </li>
+
+          {/* Services dropdown - Mobile */}
+          <li className="services-mobile mobile-only"
+              style={
+                animatedLinks
+                  ? {
+                      animation: `navLinkFade 0.5s ease forwards ${1 / 7 + 0.3}s`,
+                    }
+                  : {}
+              }>
+            <Dropdown 
+              overlay={servicesMenu} 
+              trigger={['click']}
+              placement="bottomLeft"
+            >
+              <span className={`dropdown-trigger ${isServicesActive ? "active" : ""}`}>
+                Services <IoChevronDown />
+              </span>
+            </Dropdown>
+          </li>
+
+          <li
+            style={
+              animatedLinks
+                ? {
+                    animation: `navLinkFade 0.5s ease forwards ${2 / 7 + 0.3}s`,
+                  }
+                : {}
+            }
+          >
+            <Link
+              to="/contact"
+              className={location.pathname === "/contact" ? "active" : ""}
+              onClick={() => {
+                setIsMenuActive(false);
+                setAnimatedLinks(false);
+              }}
+            >
+              Contact
+            </Link>
+          </li>
         </ul>
 
         <button
           className="chat-btn"
-          onClick={() => {
-            navigate("/contact");
-          }}
+          onClick={() => navigate("/contact")}
         >
           Book Appointment
         </button>
